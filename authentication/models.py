@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
         
         #username = kwargs.get('username')
         user = self.create_user(email, username,password, kwargs)
-        user.is_admin = True
+        #user.is_admin = True
         user.is_staff = True
         user.is_superuser = True 
         user.save()
@@ -40,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(unique=True, max_length=60)
     email = models.EmailField(unique=True) 
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+    #is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=timezone.now)
     objects = UserManager()
