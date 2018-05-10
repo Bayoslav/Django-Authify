@@ -10,11 +10,12 @@ If you have any problems with using this just open an issue here and I'll respon
 
    1. Add 'authentication' to your installed apps in settings.py
    
-   1a. Add this to your settings.py:
+   2. Add this to your settings.py:
+   
    ```
    AUTH_USER_MODEL = 'authentication.User'
    ```
-   2. Add the user model to the database
+   3. Add the user model to the database
    
     
     python manage.py makemigrations
