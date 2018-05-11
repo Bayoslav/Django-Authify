@@ -1,0 +1,45 @@
+<html>
+    <head> 
+        <h3 > Log in  </h3>
+   
+    <body>
+            {% csrf_token %}
+         <form method="post" style="text-align: center" >
+            {% if error %}
+
+                {% if form.errors %}
+                <div class="alert alert-error">
+                    <h4>Please fix the following errors</h4>
+                    <ul>
+                        {% for field in form %}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <li><a href="#id_{{ field.name }}"><strong>{{ error|escape }}</strong></a></li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% if form.non_field_errors %}
+                        {{ form.non_field_errors }}
+                    {% endif %}
+                </div>
+                {% endif %}
+
+            {%endif%}
+
+            {% csrf_token %}
+        {% for field in form %}
+            <p>
+            {{ field.label_tag }} <br>
+            {{ field }}
+            {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+            {% endif %}
+            </p>
+        {% endfor %}
+        <button type="submit" style="text-align: center" >Sign up</button>
+        </form>
+
+    </body>
+</head>
+</html>
