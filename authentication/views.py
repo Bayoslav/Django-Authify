@@ -32,7 +32,7 @@ class Register(View):
             email = form.cleaned_data.get('email')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            #print(request.POST.data)
+            
             return redirect('/')
         else:
             error = 1
@@ -65,4 +65,4 @@ class LogIn(View):
 
 
 
-    #deal with ajax request submission for facebook/twitter
+
